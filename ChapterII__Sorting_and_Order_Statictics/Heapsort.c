@@ -6,11 +6,13 @@
  * The tree has height three; the node at index 4 ( with value 8) has height one.
  */
 
+#include <stdio.h>
+
 #define PARENT(i)   (i/2)
 #define LEFT(i)     (2*i)
 #define RIGHT(i)    (2*i+1)
 
-
+void swap(int &a, int &b);
 void swap(int &a, int &b)
 {
     int c = a;
@@ -18,8 +20,7 @@ void swap(int &a, int &b)
     b = c;
 }
 
-
-
+void Max_Heapify(int A[], int i);
 /*
  *
  * Maintaining the heap property
@@ -29,10 +30,7 @@ void swap(int &a, int &b)
  * thus violating the max-heap property. Max_Heapify lets the value at A[i] "float down" in the max-heap so that the subtree rooted at index i obeys 
  * the max-heap property.
  */
-
-
-
-void Max_Heapify(int A[], i)
+void Max_Heapify(int A[], int i)
 {
     int right_index = RIGHT(i);
     int left_index  = LEFT(i);
@@ -58,5 +56,47 @@ void Max_Heapify(int A[], i)
         Max_Heapify(A, left_index);
     }
 }
+
+
+void Build_Max_Heap(int A[]);
+/*
+ *
+ * Building a heap
+ *
+ * We can use the procedure Max_Heapify in a bottom-up manner to convert an array, where n = A.length, into a max-heap.
+ *
+ * */
+
+void Build_Max_Heap(int A[])
+{
+    for( int i = sizeof( A) / 2; i != 0; --i)
+        Max_Heapify( A, i);
+}
+
+int main()
+{
+    int A[] = { 80, 45, 2, 1, 1, 2, 5, 7, 3, 4, 9, 12 };
+    for( int i = 0; i < sizeof( A); ++i)
+        printf( "%d\t", A[i]);
+    Max_Heapify( A);
+    printf( "\n");
+    for( int i = 0; i < sizeof( A); ++i)
+        printf( "%d\t", A[i]);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
