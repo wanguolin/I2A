@@ -35,14 +35,6 @@ void Max_Heapify(int A[], int i)
     int right_index = RIGHT(i);
     int left_index  = LEFT(i);
     int array_size  = sizeof(A)/sizeof(int);
-   
-    /*
-     * My poor method:
-        if(left_index < array_size && A[i] < A[left_index])
-            SWAP(A[i],A[left_index])
-        else if(right < array_size && right_index A[i] < A[right_index])
-            SWAP(A[i],A[right_index])
-    */
 
     //A better way:
     int largest = i;
@@ -75,14 +67,14 @@ void Build_Max_Heap(int A[])
 
 int main()
 {
-    int A[] = { 80, 45, 2, 1, 1, 2, 5, 7, 3, 4, 9, 12 };
-    for( int i = 0; i < sizeof( A); ++i)
-        printf( "%d\t", A[i]);
-    Max_Heapify( A);
-    printf( "\n");
-    for( int i = 0; i < sizeof( A); ++i)
-        printf( "%d\t", A[i]);
-
+    int A[12] = { 80, 45, 2, 1, 1, 2, 5, 7, 3, 4, 9, 12 };
+    int len = sizeof( A)/sizeof( int);
+    for( int i = len; i > 0; --i)
+        Max_Heapify( A, i);
+    for( int i = 0; i < len/2; ++i)
+    {
+        printf( "%d %d %d", A[i], A[i*2], A[i*2 + 1]);
+    }
 }
 
 
