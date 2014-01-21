@@ -65,17 +65,7 @@ void Build_Max_Heap(int A[])
         Max_Heapify( A, i);
 }
 
-int main()
-{
-    int A[12] = { 80, 45, 2, 1, 1, 2, 5, 7, 3, 4, 9, 12 };
-    int len = sizeof( A)/sizeof( int);
-    for( int i = len; i > 0; --i)
-        Max_Heapify( A, i);
-    for( int i = 0; i < len/2; ++i)
-    {
-        printf( "%d %d %d", A[i], A[i*2], A[i*2 + 1]);
-    }
-}
+
 
 
 
