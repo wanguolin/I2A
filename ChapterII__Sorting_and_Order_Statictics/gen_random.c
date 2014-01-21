@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
-
+#include <math.h>
 
 #define ARR_SIZE_RANGE    50
 #define ARR_SIZE_MIN      15
@@ -19,7 +19,7 @@ int gen_array(int **ptr_arr, int *arr_size)
         (*ptr_arr)[i] = rand()%NUM_IN_ARR_RANGE;        
 }
 
-bool chk_sorting( bool is_ascending, int **ptr_arr, const int arr_size)
+bool chk_sorted( bool is_ascending, int **ptr_arr, const int arr_size)
 {
     for( int i = 0; i < arr_size - 1; ++i)
         for( int j = i; j < arr_size; ++j)
@@ -27,6 +27,7 @@ bool chk_sorting( bool is_ascending, int **ptr_arr, const int arr_size)
                 return false;
     return true;
 }
+
 
 int main()
 {
